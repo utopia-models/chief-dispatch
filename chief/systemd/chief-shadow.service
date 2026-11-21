@@ -1,0 +1,10 @@
+[Unit]
+Description=chief-dispatch SHADOW cycle: decide what would dispatch from Project 1, log only (knowledge#16243)
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/chief-dispatch
+ExecStart=/bin/bash -c 'GITHUB_TOKEN=$(sudo -n /usr/local/lib/chief/chief-gh-token) exec /usr/bin/node chief/shadow.mjs'
+StandardOutput=append:%h/chief/shadow/cycle.log
+StandardError=append:%h/chief/shadow/cycle.log
+TimeoutStartSec=240
