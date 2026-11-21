@@ -468,7 +468,9 @@ export function normalizeProjectItem(
     contentType: "Issue",
     linkedPullRequests,
     isArchived,
-    metadata: {},
+    // chief-dispatch: expose every single-select/text Project field (e.g. Lane, Priority,
+    // Portfolio) so fleet routing can read them without a second query.
+    metadata: { projectFields: fieldValues },
     rateLimits,
   };
 }
@@ -524,7 +526,9 @@ function normalizePullRequestProjectItem(
     linkedPullRequests: [],
     pullRequest,
     isArchived: item.isArchived === true,
-    metadata: {},
+    // chief-dispatch: expose every single-select/text Project field (e.g. Lane, Priority,
+    // Portfolio) so fleet routing can read them without a second query.
+    metadata: { projectFields: fieldValues },
     rateLimits,
   };
 }

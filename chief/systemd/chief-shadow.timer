@@ -1,0 +1,10 @@
+[Unit]
+Description=chief-dispatch SHADOW cycle every 5 min (knowledge#16243)
+
+[Timer]
+OnBootSec=120
+OnUnitInactiveSec=300
+AccuracySec=15
+
+[Install]
+WantedBy=timers.target

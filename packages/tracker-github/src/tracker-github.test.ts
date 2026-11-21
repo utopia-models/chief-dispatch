@@ -528,7 +528,7 @@ Prompt`,
         itemId: "item-1",
       },
     });
-    expect(issue?.metadata).toEqual({});
+    expect(issue?.metadata).toEqual({ projectFields: { Status: "Ready" } });
   });
 
   it("normalizes GitHub labels and malformed timestamps", () => {
